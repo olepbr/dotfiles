@@ -1,0 +1,7 @@
+# Aliases
+
+# Shutdown, but make it French
+alias adieu="poweroff"
+
+# Dotfiles alias for source control
+alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
