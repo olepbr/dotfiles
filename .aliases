@@ -5,3 +5,6 @@ alias adieu="poweroff"
 
 # Dotfiles alias for source control
 alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# AUR-only yay
+alias yay='yay --aur'
