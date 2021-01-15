@@ -20,6 +20,20 @@ Plug 'tpope/vim-fugitive'
 "" Commentary for commenting
 Plug 'tpope/vim-commentary'
 
+"" Polyglot for syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+"" YouCompleteMe for code completion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+"" Vimtex for LaTeX support
+Plug 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
 call plug#end()
 
 syntax enable
@@ -28,7 +42,6 @@ set incsearch
 set ignorecase
 set hlsearch
 set ruler
-set number relativenumber
 set cursorline
 highlight CursorLine ctermbg=235
 set foldmethod=marker
