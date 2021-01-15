@@ -1,10 +1,19 @@
 # Aliases
 
 # Shutdown, but make it French
-alias adieu="poweroff"
+alias adieu="shutdown now"
 
 # Dotfiles alias for source control
-alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotf="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # AUR-only yay
-alias yay='yay --aur'
+alias yay="yay --aur"
+
+# View in vim
+alias view="vim -R"
+
+# Don"t overwrite without asking
+alias cp="cp -i"
+
+# Colourful ls
+alias ls="ls -A --color=auto"
