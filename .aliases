@@ -1,4 +1,7 @@
-# Aliases
+#
+# ~/.aliases
+#
+# vim: syntax=bash
 
 # Shutdown, but make it French
 alias adieu="shutdown now"
@@ -9,11 +12,9 @@ alias dotf="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # AUR-only yay
 alias yay="yay --aur"
 
-# View in vim
-alias view="vim -R"
+# Peaclock in .config
+alias peaclock="peaclock --config-dir ~/.config/peaclock"
 
-# Don"t overwrite without asking
-alias cp="cp -i"
-
-# Colourful ls
-alias ls="ls -A --color=auto"
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias more=less
