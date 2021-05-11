@@ -16,8 +16,9 @@ smart_borders on
 smart_gaps on
 
 # volume controls
-bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -25,8 +26,11 @@ floating_modifier $mod
 # focus on window activation
 focus_on_window_activation focus
 
+# no focus wrapping
+focus_wrapping no
+
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # start brave
 bindsym $mod+c exec brave
@@ -72,10 +76,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+p split h
+bindsym $mod+u split h
 
 # split in vertical orientation
 bindsym $mod+v split v
+
+# toggle split
+bindsym $mod+t split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -165,4 +172,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output right
+
+exec_always --no-startup-id "unclutter --timeout 1"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
