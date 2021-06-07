@@ -63,7 +63,6 @@ set incsearch
 set ignorecase
 set hlsearch
 set ruler
-highlight CursorLine ctermbg=235
 set foldmethod=marker
 set spelllang=en_uk,nb_no
 
