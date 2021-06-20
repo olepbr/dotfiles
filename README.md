@@ -6,6 +6,7 @@ These are my dotfiles, one day they'll bang.
 - brave
 - emacs + doom
 - fakeroot
+- fzf
 - i3-gaps
 - i3lock
 - polybar
