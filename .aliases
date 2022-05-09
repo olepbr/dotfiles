@@ -1,20 +1,29 @@
 #
 # ~/.aliases
 #
-# vim: syntax=bash
+# vim:syntax=bash
 
-# Shutdown, but make it French
 alias adieu="shutdown now"
-
-# Dotfiles alias for source control
-alias dotf="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-
-# AUR-only yay
-alias yay="yay --aur"
-
-# Peaclock in .config
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
-
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
+alias cal='ncal -bMw'
+alias cass='mosh cass'
+alias cat=bat
+alias cbonsai="cbonsai -ilC"
+alias cp="cp -i"                                                       # confirm before overwriting something
+alias cpw="maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
+alias df='df -h'                                                       # human-readable sizes
+alias dotf="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" # dotfiles alias for source control
+alias free='free -h'
+alias idag="$HOME/dev/perl/idag.pl"
+alias itprint="lp -h printhost.samfundet.no -d motzfeldt $1"
+alias kinit="kinit -V olebra@AD.SAMFUNDET.NO"
+alias l="exa --color=always" # lazy ls
+alias la="exa -al --color=always"
+alias ll="exa -l --color=always"
+alias ls="exa"
+alias lr="exa -lrs=modified --color=always"
 alias more=less
+alias norstat='nordvpn status'
+alias nordpå='nordvpn connect'
+alias nordfra='nordvpn disconnect'
+alias vim="nvim"
