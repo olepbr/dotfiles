@@ -31,15 +31,32 @@ focus_wrapping no
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-# start brave
-bindsym $mod+c exec brave
-
-# lock screen
-bindsym $mod+b exec i3lock
+# start browser
+bindsym $mod+c exec $browser
 
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
+
+# gjennom natten
+set $Locker i3lock -t -i /usr/share/backgrounds/krasner-pink-stone.png && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+b exec --no-startup-id $Locker
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec --no-startup-id dmenu_run
