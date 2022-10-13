@@ -12,9 +12,6 @@ font pango:monospace 8
 # gaps
 for_window [class="^.*"] border pixel 3
 gaps inner 11
-gaps outer 5
-smart_borders on
-smart_gaps on
 
 # volume controls
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
