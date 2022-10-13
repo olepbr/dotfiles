@@ -35,7 +35,7 @@ colors() {
 
 # Change the window title of X terminals
 case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
+	xterm*|rxvt*|Eterm*|alacritty|aterm|kterm|gnome*|interix|konsole*)
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
 		;;
 	screen*)
@@ -113,19 +113,19 @@ shopt -s histappend
 # # usage: ex <file>
 ex ()
 {
-  if [ -f $1 ] ; then
+  if [ -f "$1" ] ; then
     case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
+      *.tar.bz2)   tar xjf "$1"   ;;
+      *.tar.gz)    tar xzf "$1"   ;;
+      *.bz2)       bunzip2 "$1"   ;;
+      *.rar)       unrar x "$1"		;;
+      *.gz)        gunzip "$1"    ;;
+      *.tar)       tar xf "$1"    ;;
+      *.tbz2)      tar xjf "$1"   ;;
+      *.tgz)       tar xzf "$1"   ;;
+      *.zip)       unzip "$1"     ;;
+      *.Z)         uncompress "$1";;
+      *.7z)        7z x "$1"      ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -138,10 +138,14 @@ function man() {
   command man "$1" || $_ --help
 }
 
+function kobbelopp() {
+	command nmcli connection up "$1"
+}
+
 # fzf functions
 
 function activate-venv() {
-	source "$HOME/.virtualenvs/$(ls ~/.virtualenvs/ | fzf)/bin/activate"
+    source "$HOME/.virtualenvs/$(ls ~/.virtualenvs/ | fzf)/bin/activate"
 }
 
 function delete-branches() {
@@ -171,9 +175,9 @@ function pdf() {
 	| zathura
 }
 
-export TERM=xterm-256color
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
 source "$HOME/.aliases"
 source /usr/share/bash-completion/completions/git
+source "$HOME/.cargo/env"
