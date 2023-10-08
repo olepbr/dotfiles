@@ -19,14 +19,17 @@ HISTIGNORE="clear:bg:fg:cd:cd -:cd ..:exit:date:w:* --help:ls:l:ll:lll"
 setopt autocd
 bindkey -e
 zstyle :compinstall filename '/home/olepbr/.zshrc'
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 
 # prompt design
 # PROMPT='%F{green}%n%f%F{yellow}@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
 PROMPT='%F{green}⚘%f %F{blue}%(5~|%-1~/…/%3~|%4~)%f '
 RPROMPT='[%F{yellow}%?%f]'
+
+# fzf extras
+source "/usr/share/fzf/key-bindings.zsh"
+source "/usr/share/fzf/completion.zsh"
 
 # functions
 
