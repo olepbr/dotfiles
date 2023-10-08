@@ -82,7 +82,7 @@ function gch() {
     local branch
     branch=$(git branch --all | fzf | tr -d '[:space:]')
     if [ -n "$branch" ]; then
-      git checkout "$branch"
+      git switch "$branch"
     fi
 }
 
