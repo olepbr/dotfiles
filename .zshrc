@@ -87,8 +87,16 @@ function gch() {
 }
 
 export PYENV_ROOT="$HOME/.pyenv"
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-export DARK_POINT="63.431010258431876 10.380130810237022"
+eval "$(fnm env --use-on-cd)"
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
+PATH="/home/olepbr/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/olepbr/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/olepbr/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/olepbr/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/olepbr/perl5"; export PERL_MM_OPT;
+
+# opam configuration
+[[ ! -r /home/olepbr/.opam/opam-init/init.zsh ]] || source /home/olepbr/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
