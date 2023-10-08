@@ -9,10 +9,6 @@ pdfgrep() {
 # aliases
 source "$HOME/.aliases"
 
-# z for intelligent jumping
-source "$HOME/dev/zsh-z/zsh-z.plugin.zsh"
-source "$HOME/xilinx/Vivado/2022.1/settings64.sh"
-
 # history management
 HISTFILE=~/.histfile
 HISTSIZE=5000
