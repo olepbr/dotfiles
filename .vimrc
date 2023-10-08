@@ -16,8 +16,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " vim enhancements
-Plug 'ciaranm/securemodelines'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-surround'
+
+" LISP stuff.
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-repeat'
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
@@ -39,6 +44,7 @@ Plug 'jparise/vim-graphql'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf.vim'
 
+" latex support
 Plug 'lervag/vimtex'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -46,18 +52,46 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
-" semantic language support
+" Launch REPLs from vim.
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
+
 if has('nvim')
-      Plug 'Olical/conjure'
-      Plug 'hrsh7th/cmp-buffer'
-      Plug 'hrsh7th/cmp-cmdline'
-      Plug 'hrsh7th/cmp-nvim-lsp'
-      Plug 'hrsh7th/cmp-path'
-      Plug 'hrsh7th/cmp-vsnip'
-      Plug 'hrsh7th/nvim-cmp'
-      Plug 'neovim/nvim-lspconfig'
-      Plug 'nvim-lua/plenary.nvim'
-      Plug 'ray-x/lsp_signature.nvim'
+    " Use REPLs in vim.
+    Plug 'Olical/conjure'
+
+    " Autocompletion via various cmp plugins.
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'PaterJason/cmp-conjure'
+    Plug 'hrsh7th/nvim-cmp'
+
+    " Standard lsp configuration.
+    Plug 'neovim/nvim-lspconfig'
+
+    " Not sure why I have this. :-)
+    Plug 'nvim-lua/plenary.nvim'
+
+    " This, too.
+    Plug 'ray-x/lsp_signature.nvim'
+
+    " Used by vim-jack-in to run commands in the background.
+    Plug 'radenling/vim-dispatch-neovim'
+
+    " Dracula theme.
+    Plug 'Mofiqul/dracula.nvim'
+
+    " Statusline, but make it Lua.
+    Plug 'nvim-lualine/lualine.nvim'
+
+    " Lean support.
+    Plug 'Julian/lean.nvim'
+
+    " Find things.
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 endif
 
 " snippet engine
@@ -66,11 +100,10 @@ Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
 set foldmethod=marker
-set spelllang=en_uk,nb_no
 
 " lightline
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
+			\ 'colorscheme': 'ayu_dark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
@@ -209,7 +242,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1
+            \ && exists('b:NERDTree') && b:NERDTree.isTabTree() |
 			\ quit | endif
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
