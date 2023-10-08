@@ -9,9 +9,8 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# gaps
-for_window [class="^.*"] border pixel 3
-gaps inner 11
+default_border pixel 2
+default_floating_border pixel 2
 
 # volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
