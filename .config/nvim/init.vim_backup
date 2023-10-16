@@ -2,8 +2,8 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 " use (experimental) filetype.lua for detection
-let g:do_filetype_lua = 1
-let g:did_load_filetypes = 0
+" let g:do_filetype_lua = 1
+" let g:did_load_filetypes = 0
 
 source ~/.vimrc
 
