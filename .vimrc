@@ -72,7 +72,7 @@ if has('nvim')
     " Standard lsp configuration.
     Plug 'neovim/nvim-lspconfig'
 
-    " Not sure why I have this. :-)
+    " A dependency of telescope, apparently.
     Plug 'nvim-lua/plenary.nvim'
 
     " This, too.
@@ -91,7 +91,7 @@ if has('nvim')
     Plug 'Julian/lean.nvim'
 
     " Find things.
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
 endif
 
 " snippet engine
