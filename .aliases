@@ -8,19 +8,20 @@ alias amne="git commit --amend --no-edit"
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
 alias cal='ncal -bMw'
 alias cass='mosh cass'
-alias cat=bat
+alias cat=batcat
 alias cbonsai="cbonsai -ilC"
 alias cp="cp -i"                                                       # confirm before overwriting something
 alias df='df -h'                                                       # human-readable sizes
 alias dotf="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" # dotfiles alias for source control
+alias fd="fdfind"
 alias free='free -h'
 alias idag="$HOME/dev/perl/idag.pl"
 alias itprint="lp -h printhost.samfundet.no -d motzfeldt $1"
-alias l="eza --color=always" # lazy ls
-alias la="eza -alg --color=always"
-alias ll="eza -lg --color=always"
-alias ls="eza"
-alias lr="eza -lgrs=modified --color=always"
+alias l="exa --color=always" # lazy ls
+alias la="exa -alg --color=always"
+alias ll="exa -lg --color=always"
+alias ls="exa"
+alias lr="exa -lgrs=modified --color=always"
 alias more=less
 alias sqlite="sqlite3"
 alias view="nvim -R"

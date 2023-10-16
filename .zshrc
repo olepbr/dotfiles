@@ -28,8 +28,8 @@ PROMPT='%F{green}⚘%f %F{blue}%(5~|%-1~/…/%3~|%4~)%f '
 RPROMPT='[%F{yellow}%?%f]'
 
 # fzf extras
-source "/usr/share/fzf/key-bindings.zsh"
-source "/usr/share/fzf/completion.zsh"
+source "/usr/share/doc/fzf/examples/completion.zsh"
+source "/usr/share/doc/fzf/examples/key-bindings.zsh"
 
 # functions
 
@@ -86,11 +86,7 @@ function gch() {
     fi
 }
 
-export PYENV_ROOT="$HOME/.pyenv"
 export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(fnm env --use-on-cd)"
 
 PATH="/home/olepbr/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/olepbr/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
