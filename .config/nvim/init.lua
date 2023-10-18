@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>q', '<cmd>quit<cr>')
+vim.keymap.set('n', '<leader>h', '<cmd>nohlsearch<cr>')
+vim.keymap.set('n', '<leader>p', '<cmd>read !xsel --clipboard --output<cr>')
+vim.keymap.set({'n', 'v'}, '<leader>c', '<cmd>write !xsel -ib<cr><cr>')
 
 -- lazy.nvim for plugin management.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
